@@ -7,6 +7,62 @@ using System.Threading.Tasks;
 
 namespace ConcurAPIConsole
 {
+    public class UserResult
+    {
+        public string LocaleOverrides_PreferenceEndDayViewHour { get; set; }
+        public string LocaleOverrides_PreferenceFirstDayOfWeek { get; set; }
+        public string LocaleOverrides_PreferenceDateFormat { get; set; }
+        public string LocaleOverrides_PreferenceCurrencySymbolLocation { get; set; }
+        public string LocaleOverrides_PreferenceHourMinuteSeparator { get; set; }
+        public string LocaleOverrides_PreferenceDistance { get; set; }
+        public string LocaleOverrides_PreferenceDefaultCalView { get; set; }
+        public string LocaleOverrides_Preference24Hour { get; set; }
+        public int LocaleOverrides_PreferenceNumberFormat { get; set; }
+        public int LocaleOverrides_PreferenceStartDayViewHour { get; set; }
+        public int LocaleOverrides_PreferenceNegativeCurrencyFormat { get; set; }
+        public int LocaleOverrides_PreferenceNegativeNumberFormat { get; set; }
+        public string Addresses_Country { get; set; }
+        public string Addresses_StreetAddress { get; set; }
+        public long Addresses_PostalCode { get; set; }
+        public string Addresses_Locality { get; set; }
+        public string Addresses_Type { get; set; }
+        public string Addresses_Region { get; set; }
+        public string Timezone { get; set; }
+        public string Meta_ResourceType { get; set; }
+        public string Meta_Created { get; set; }
+        public string Meta_LastModified { get; set; }
+        public long Meta_Version { get; set; }
+        public string Meta_Location { get; set; }
+        public string DisplayName { get; set; }
+        public string Name_HonorificSuffix { get; set; }
+        public string Name_GivenName { get; set; }
+        public string Name_FamilyName { get; set; }
+        public string Name_FamilyNamePrefix { get; set; }
+        public string Name_HonorificPrefix { get; set; }
+        public string Name_MiddleName { get; set; }
+        public string Name_Formatted { get; set; }
+        public long PhoneNumbers { get; set; }
+        public long EmergencyContacts { get; set; }
+        public string PreferredLanguage { get; set; }
+        public string Title { get; set; }
+        public string DateOfBirth { get; set; }
+        public string NickName { get; set; }
+        public string Schemas { get; set; }
+        public string Active { get; set; }
+        public string Id { get; set; }
+        public string Emails_Verified { get; set; }
+        public string Emails_Type { get; set; }
+        public string Emails_Value { get; set; }
+        public string Emails_Notifications { get; set; }
+        public string UserName { get; set; }
+        public string Urn_TerminationDate { get; set; }
+        public string Urn_CompanyId { get; set; }
+        public string Urn_Manager_Value { get; set; }
+        public int Urn_Manager_EmployeeNumber { get; set; }
+        public string Urn_CostCenter { get; set; }
+        public string Urn_StartDate { get; set; }
+        public string Urn_EmployeeNumber { get; set; }
+    }
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Address
     {
@@ -111,7 +167,7 @@ namespace ConcurAPIConsole
         public string userName { get; set; }
 
         [JsonProperty("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")]
-        public UrnIetfParamsScimSchemasExtensionEnterprise20User urnietfparamsscimschemasextensionenterprise20User { get; set; }
+        public UrnIetfParamsScimSchemasExtensionEnterprise20User urn { get; set; }
     }
 
     public class Root

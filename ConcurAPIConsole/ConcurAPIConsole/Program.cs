@@ -11,6 +11,10 @@ using System.Xml;
 using log4net;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Drawing;
+using System.Security.Policy;
+using System.Diagnostics.Metrics;
+using System.Runtime.InteropServices.JavaScript;
 
 // Replace these with your Concur API credentials
 // Concur API credentials
@@ -33,8 +37,8 @@ Console.WriteLine(args.Length);
 //string statusReport = await GetReports(refresh_token, username, password, clientId, clientSecret, baseURL);
 
 // Step 4: Get Expense Reports Entries
-//string statusReportEntry = await GetReportEntries(refresh_token, username, password, clientId, clientSecret, baseURL);
-string status = await GetAndInsertReports(refresh_token, username, password, clientId, clientSecret, baseURL);
+string statusReportEntry = await GetReportEntries(refresh_token, username, password, clientId, clientSecret, baseURL);
+//string status = await GetAndInsertReports(refresh_token, username, password, clientId, clientSecret, baseURL);
 
 
 
@@ -99,14 +103,335 @@ string status = await GetAndInsertReports(refresh_token, username, password, cli
             var usersResult = JsonConvert.DeserializeObject<object>(jsonString);
             Console.WriteLine("GetAllUsers:");
             Console.WriteLine("Successfully fetched all the users");
-            using (var conn = new SqlConnection("Server=70.35.201.113;Database=Energy_Recovery_Dev;persist security info=True;user id=VASPLogin;password=vasp@22$;multipleactiveresultsets=True"))
+            var userDataList = new Root();
+
+            var jsonContent = JsonConvert.SerializeObject(usersResult);
+            userDataList = JsonConvert.DeserializeObject<Root>(jsonContent);
+
+            // Insert data into the database
+            //string insertStatus = await InsertUsers(userDataList);
+            string insertStatus = "";
+            Console.WriteLine("GetAllUsersAndInsert:");
+            Console.WriteLine(insertStatus);
+
+            // return insertStatus;
+            using (var conn = new SqlConnection("Data Source=VASP-LAPTOP13\\SQLEXPRESS01;Database=concur;Integrated Security=true;TrustServerCertificate=true;User Instance=False;"))
             {
-                var cmd = new SqlCommand("insert into Users values (@bar)", conn);
-                cmd.Parameters.AddWithValue("@bar", 17);
                 conn.Open();
-                cmd.ExecuteNonQuery();
+
+                foreach (var userData in userDataList.Resources)
+                {
+                    var cmd = new SqlCommand("INSERT_USERS", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceEndDayViewHour", userData.localeOverrides.preferenceEndDayViewHour);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceFirstDayOfWeek", userData.localeOverrides.preferenceFirstDayOfWeek);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDateFormat", userData.localeOverrides.preferenceDateFormat);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceCurrencySymbolLocation", userData.localeOverrides.preferenceCurrencySymbolLocation);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceHourMinuteSeparator", userData.localeOverrides.preferenceHourMinuteSeparator);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDistance", userData.localeOverrides.preferenceDistance);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDefaultCalView", userData.localeOverrides.preferenceDefaultCalView);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preference24Hour", userData.localeOverrides.preference24Hour);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNumberFormat", userData.localeOverrides.preferenceNumberFormat);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceStartDayViewHour", userData.localeOverrides.preferenceStartDayViewHour);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeCurrencyFormat", userData.localeOverrides.preferenceNegativeCurrencyFormat);
+                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeNumberFormat", userData.localeOverrides.preferenceNegativeNumberFormat);
+                    if (userData.addresses != null && userData.addresses.Count > 0)
+                    {
+                        if (userData.addresses[0].country == null)
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_country", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_country", userData.addresses[0].country);
+                        }
+                        if (userData.addresses[0].streetAddress == null )
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_streetAddress", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_streetAddress", userData.addresses[0].streetAddress);
+                        }
+                        if (userData.addresses[0].postalCode == null)
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_postalCode", 0);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_postalCode", userData.addresses[0].postalCode);
+                        }
+                        if(userData.addresses[0].locality == null)
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_locality", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_locality", userData.addresses[0].locality);
+                        }
+                        if (userData.addresses[0].type == null)
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_type", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_type", userData.addresses[0].type);
+                        }
+                        if (userData.addresses[0].region == null)
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_region", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@addresses_region", userData.addresses[0].region);
+                        }
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@addresses_country", "");
+                        cmd.Parameters.AddWithValue("@addresses_streetAddress", "");
+                        cmd.Parameters.AddWithValue("@addresses_postalCode", 0);
+                        cmd.Parameters.AddWithValue("@addresses_locality", "");
+                        cmd.Parameters.AddWithValue("@addresses_type", "");
+                        cmd.Parameters.AddWithValue("@addresses_region", "");
+                    }
+                    cmd.Parameters.AddWithValue("@timezone", userData.timezone);
+                    cmd.Parameters.AddWithValue("@meta_resourceType", userData.meta.resourceType);
+                    cmd.Parameters.AddWithValue("@meta_created", userData.meta.created);
+                    cmd.Parameters.AddWithValue("@meta_lastModified", userData.meta.lastModified);
+                    cmd.Parameters.AddWithValue("@meta_version", userData.meta.version);
+                    cmd.Parameters.AddWithValue("@meta_location", userData.meta.location);
+                    cmd.Parameters.AddWithValue("@displayName", userData.displayName);
+                    if (userData.name.honorificSuffix == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_honorificSuffix", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_honorificSuffix", userData.name.honorificSuffix);
+                    }
+                    if (userData.name.givenName == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_givenName", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_givenName", userData.name.givenName);
+                    }
+                    if (userData.name.familyName == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_familyName", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_familyName", userData.name.familyName);
+                    }
+                    if (userData.name.familyNamePrefix == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_familyNamePrefix", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_familyNamePrefix", userData.name.familyNamePrefix);
+                    }
+                    if (userData.name.honorificPrefix == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_honorificPrefix", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_honorificPrefix", userData.name.honorificPrefix);
+                    }
+                    if (userData.name.middleName == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_middleName", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_middleName", userData.name.middleName);
+                    }
+                    if (userData.name.formatted == null)
+                    {
+                        cmd.Parameters.AddWithValue("@name_formatted", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@name_formatted", userData.name.formatted);
+                    }
+                    if (userData.phoneNumbers != null && userData.phoneNumbers.Count > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@phoneNumbers_value", userData.phoneNumbers[0].value);
+                        cmd.Parameters.AddWithValue("@phoneNumbers_type", userData.phoneNumbers[0].type);
+                        cmd.Parameters.AddWithValue("@phoneNumbers_display", userData.phoneNumbers[0].display);
+                        if (userData.phoneNumbers[0].issuingCountry == null)
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_issuingCountry", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_issuingCountry", userData.phoneNumbers[0].issuingCountry);
+                        }
+                        if (userData.phoneNumbers[0].notifications == null)
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_notifications", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_notifications", userData.phoneNumbers[0].notifications);
+                        }
+                        if(userData.phoneNumbers[0].primary == null)
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_primary", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@phoneNumbers_primary", userData.phoneNumbers[0].primary);
+                        }
+                        
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@phoneNumbers_value", "");
+                        cmd.Parameters.AddWithValue("@phoneNumbers_type", "");
+                        cmd.Parameters.AddWithValue("@phoneNumbers_display", "");
+                        cmd.Parameters.AddWithValue("@phoneNumbers_issuingCountry", "");
+                        cmd.Parameters.AddWithValue("@phoneNumbers_notifications", "");
+                        cmd.Parameters.AddWithValue("@phoneNumbers_primary", "");
+                    }
+                    if (userData.emergencyContacts != null && userData.emergencyContacts.Count > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@emergencyContacts_country", userData.emergencyContacts[0].country);
+                        cmd.Parameters.AddWithValue("@emergencyContacts_streetAddress", userData.emergencyContacts[0].streetAddress);
+                        cmd.Parameters.AddWithValue("@emergencyContacts_postalCode", userData.emergencyContacts[0].postalCode);
+                        cmd.Parameters.AddWithValue("@emergencyContacts_name", userData.emergencyContacts[0].name);
+                        cmd.Parameters.AddWithValue("@emergencyContacts_locality", userData.emergencyContacts[0].locality);
+                        cmd.Parameters.AddWithValue("@emergencyContacts_phone", userData.emergencyContacts[0].phones[0]);
+                        if(userData.emergencyContacts[0].region == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_region", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_region", userData.emergencyContacts[0].region);
+                        }
+                        
+                        cmd.Parameters.AddWithValue("@emergencyContacts_relationship", userData.emergencyContacts[0].relationship);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@emergencyContacts_country", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_streetAddress", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_postalCode", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_name", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_locality", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_phone", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_region", "");
+                        cmd.Parameters.AddWithValue("@emergencyContacts_relationship", "");
+                    }
+
+                    cmd.Parameters.AddWithValue("@preferredLanguage", userData.preferredLanguage);
+                    if (userData.title == null)
+                    {
+                        cmd.Parameters.AddWithValue("@title", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@title", userData.title);
+                    }
+                    if (userData.dateOfBirth == null)
+                    {
+                        cmd.Parameters.AddWithValue("@dateOfBirth", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@dateOfBirth", userData.dateOfBirth);
+                    }
+                    if (userData.nickName == null)
+                    {
+                        cmd.Parameters.AddWithValue("@nickName", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@nickName", userData.nickName);
+                    }
+                    cmd.Parameters.AddWithValue("@schemas", userData.schemas[0]);
+                    cmd.Parameters.AddWithValue("@active", userData.active);
+                    cmd.Parameters.AddWithValue("@id", userData.id);
+                    if (userData.emails != null && userData.emails.Count > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@emails_verified", userData.emails[0].verified);
+                        cmd.Parameters.AddWithValue("@emails_type", userData.emails[0].type);
+                        cmd.Parameters.AddWithValue("@emails_value", userData.emails[0].value);
+                        cmd.Parameters.AddWithValue("@emails_notifications", userData.emails[0].notifications);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@emails_verified", "");
+                        cmd.Parameters.AddWithValue("@emails_type", "");
+                        cmd.Parameters.AddWithValue("@emails_value", "");
+                        cmd.Parameters.AddWithValue("@emails_notifications", "");
+                    }
+                    cmd.Parameters.AddWithValue("@userName", userData.userName);
+                    if (userData.urn.terminationDate == null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_terminationDate", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@urn_terminationDate", userData.urn.terminationDate);
+                    }
+                    if (userData.urn.companyId == null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_companyId", userData.urn.companyId);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@urn_companyId", userData.urn.companyId);
+                    }
+                    if (userData.urn.manager == null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_manager_value", "");
+                        cmd.Parameters.AddWithValue("@urn_manager_employeeNumber", "");
+                    }
+                    
+                    else
+                    {
+                        if (userData.urn.manager.value == null)
+                        {
+                            cmd.Parameters.AddWithValue("@urn_manager_value", "");
+
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@urn_manager_value", userData.urn.manager.value);
+                        }
+                        if (userData.urn.manager.employeeNumber == null)
+                        {
+                            cmd.Parameters.AddWithValue("@urn_manager_employeeNumber", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@urn_manager_employeeNumber", userData.urn.manager.employeeNumber);
+                        }
+                    }
+                  
+                    if (userData.urn.costCenter == null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_costCenter", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@urn_costCenter", userData.urn.costCenter);
+
+                    }
+                    cmd.Parameters.AddWithValue("@urn_startDate", userData.urn.startDate);
+                    cmd.Parameters.AddWithValue("@urn_employeeNumber", userData.urn.employeeNumber);
+
+                    cmd.ExecuteNonQuery();
+                }
             }
-            return "Successfully fetched all the users";
+            return "Successfully fetched and inserted all the users";
         }
     }
     catch (Exception ex)
@@ -115,29 +440,8 @@ string status = await GetAndInsertReports(refresh_token, username, password, cli
         return string.Empty;
     }
 }
-static async Task<string> InsertUsers()
-{
-    log4net.Config.BasicConfigurator.Configure();
-    log4net.ILog log = log4net.LogManager.GetLogger(typeof(Program));
-    try
-    {
-        log.Info("In method InsertUsers");
-        using (var conn = new SqlConnection("Data Source=VASP-LAPTOP13\\SQLEXPRESS01;Database=concur;Integrated Security=true;TrustServerCertificate=true;User Instance=False;"))
-        {
-            var cmd = new SqlCommand("insert into Sample values (@ID)", conn);
-            cmd.Parameters.AddWithValue("@ID", 1);
-            conn.Open();
-            cmd.ExecuteNonQuery();
-        }
-        return "Successfully Inserted all the users";
-        
-    }
-    catch (Exception ex)
-    {
-        log.Error("Error in GetAllUsers:" + ex.Message);
-        return string.Empty;
-    }
-}
+
+ 
 //all approved Expense reports since the last run time
 static async Task<string> GetAndInsertReports(string refresh_token, string username, string password, string clientId, string clientSecret, string baseURL)
 {
@@ -386,8 +690,340 @@ static async Task<string> GetAndInsertReports(string refresh_token, string usern
             {
                 // Access specific elements within each expense
                 string ID = expenseNode.SelectSingleNode("ID").InnerText;
+                string URI = expenseNode.SelectSingleNode("URI").InnerText;
                 string ReportID = expenseNode.SelectSingleNode("ReportID").InnerText;
+                string ReportOwnerID = expenseNode.SelectSingleNode("ReportOwnerID").InnerText;
+                string ExpenseTypeCode = expenseNode.SelectSingleNode("ExpenseTypeCode").InnerText;
+                string ExpenseTypeName = expenseNode.SelectSingleNode("ExpenseTypeName").InnerText;
+                string SpendCategoryCode = expenseNode.SelectSingleNode("SpendCategoryCode").InnerText;
+                string SpendCategoryName = expenseNode.SelectSingleNode("SpendCategoryName").InnerText;
+                string PaymentTypeID = expenseNode.SelectSingleNode("PaymentTypeID").InnerText;
+                string PaymentTypeName = expenseNode.SelectSingleNode("PaymentTypeName").InnerText;
+                string TransactionDate = expenseNode.SelectSingleNode("TransactionDate").InnerText;
+                string TransactionCurrencyCode = expenseNode.SelectSingleNode("TransactionCurrencyCode").InnerText;
+                string TransactionAmount = expenseNode.SelectSingleNode("TransactionAmount").InnerText;
+                string ExchangeRate = expenseNode.SelectSingleNode("ExchangeRate").InnerText;
+                string PostedAmount = expenseNode.SelectSingleNode("PostedAmount").InnerText;
+                string ApprovedAmount = expenseNode.SelectSingleNode("ApprovedAmount").InnerText;
+                string VendorDescription = expenseNode.SelectSingleNode("VendorDescription").InnerText;
+                string VendorListItemID = expenseNode.SelectSingleNode("VendorListItemID").InnerText;
+                string VendorListItemName = expenseNode.SelectSingleNode("VendorListItemName").InnerText;
+                string LocationID = expenseNode.SelectSingleNode("LocationID").InnerText;
+                string LocationName = expenseNode.SelectSingleNode("LocationName").InnerText;
+                string LocationSubdivision = expenseNode.SelectSingleNode("LocationSubdivision").InnerText;
+                string LocationCountry = expenseNode.SelectSingleNode("LocationCountry").InnerText;
+                string Description = expenseNode.SelectSingleNode("Description").InnerText;
+                string IsPersonal = expenseNode.SelectSingleNode("IsPersonal").InnerText;
+                string IsBillable = expenseNode.SelectSingleNode("IsBillable").InnerText;
+                string IsPersonalCardCharge = expenseNode.SelectSingleNode("IsPersonalCardCharge").InnerText;
+                string HasImage = expenseNode.SelectSingleNode("HasImage").InnerText;
+                string IsImageRequired = expenseNode.SelectSingleNode("IsImageRequired").InnerText;
+                string ReceiptReceived = expenseNode.SelectSingleNode("ReceiptReceived").InnerText;
+                string TaxReceiptType = expenseNode.SelectSingleNode("TaxReceiptType").InnerText;
+                string ElectronicReceiptID = expenseNode.SelectSingleNode("ElectronicReceiptID").InnerText;
+                string CompanyCardTransactionID = expenseNode.SelectSingleNode("CompanyCardTransactionID").InnerText;
+                string TripID = expenseNode.SelectSingleNode("TripID").InnerText;
+                string HasItemizations = expenseNode.SelectSingleNode("HasItemizations").InnerText;
+                string AllocationType = expenseNode.SelectSingleNode("AllocationType").InnerText;
+                string HasAttendees = expenseNode.SelectSingleNode("HasAttendees").InnerText;
+                string HasVAT = expenseNode.SelectSingleNode("HasVAT").InnerText;
+                string HasAppliedCashAdvance = expenseNode.SelectSingleNode("HasAppliedCashAdvance").InnerText;
+                string HasComments = expenseNode.SelectSingleNode("HasComments").InnerText;
+                string HasExceptions = expenseNode.SelectSingleNode("HasExceptions").InnerText;
+                string IsPaidByExpensePay = expenseNode.SelectSingleNode("IsPaidByExpensePay").InnerText;
+                string EmployeeBankAccountID = expenseNode.SelectSingleNode("EmployeeBankAccountID").InnerText;
+                string Journey = expenseNode.SelectSingleNode("Journey").InnerText;
+                string LastModified = expenseNode.SelectSingleNode("LastModified").InnerText;
+                string FormID = expenseNode.SelectSingleNode("FormID").InnerText;
+                string OrgUnit1 = expenseNode.SelectSingleNode("OrgUnit1").InnerText;
+                string OrgUnit2 = expenseNode.SelectSingleNode("OrgUnit2").InnerText;
+                string OrgUnit3 = expenseNode.SelectSingleNode("OrgUnit3").InnerText;
+                string OrgUnit4 = expenseNode.SelectSingleNode("OrgUnit4").InnerText;
+                string OrgUnit5 = expenseNode.SelectSingleNode("OrgUnit5").InnerText;
+                string OrgUnit6 = expenseNode.SelectSingleNode("OrgUnit6").InnerText;
+                XmlNodeList Custom1 = xmlDoc.SelectNodes("//Items/Entry/Custom1");
+                string Custom1_Type = "";
+                string Custom1_Value = "";
+                string Custom1_Code = "";
+                string Custom1_ListItemID = "";
+                foreach (XmlNode Custom1Node in Custom1)
+                {
+                     Custom1_Type = Custom1Node.SelectSingleNode("Type").InnerText;
+                     Custom1_Value = Custom1Node.SelectSingleNode("Value").InnerText;
+                     Custom1_Code = Custom1Node.SelectSingleNode("Code").InnerText;
+                     Custom1_ListItemID = Custom1Node.SelectSingleNode("ListItemID").InnerText;
+                }
+                string Custom2 = "";
+            
+                string Custom3 = "";
+                
+
+                string Custom4 = "";
+           
+
+                string Custom5 = "";
+        
+
+                string Custom6 = "";
+               
+
+                string Custom7 = "";
+               
+
+                string Custom8 = "";
+              
+
+                string Custom9 = "";
+          
+                XmlNodeList Custom10 = xmlDoc.SelectNodes("//Items/Entry/Custom10");
+                string Custom10_Type = "";
+                string Custom10_Value = "";
+                string Custom10_Code = "";
+                string Custom10_ListItemID = "";
+                foreach (XmlNode Custom10Node in Custom10)
+                {
+                     Custom10_Type = Custom10Node.SelectSingleNode("Type").InnerText;
+                     Custom10_Value = Custom10Node.SelectSingleNode("Value").InnerText;
+                     Custom10_Code = Custom10Node.SelectSingleNode("Code").InnerText;
+                     Custom10_ListItemID = Custom10Node.SelectSingleNode("ListItemID").InnerText;
+                }
+                string Custom11 = expenseNode.SelectSingleNode("Custom11").InnerText;
+                string Custom12 = expenseNode.SelectSingleNode("Custom12").InnerText;
+                string Custom13 = expenseNode.SelectSingleNode("Custom13").InnerText;
+                string Custom14 = expenseNode.SelectSingleNode("Custom14").InnerText;
+                string Custom15 = expenseNode.SelectSingleNode("Custom15").InnerText;
+                string Custom16 = expenseNode.SelectSingleNode("Custom16").InnerText;
+                string Custom17 = expenseNode.SelectSingleNode("Custom17").InnerText;
+                string Custom18 = expenseNode.SelectSingleNode("Custom18").InnerText;
+                string Custom19 = expenseNode.SelectSingleNode("Custom19").InnerText;
+                string Custom20 = expenseNode.SelectSingleNode("Custom20").InnerText;
+                string Custom21 = expenseNode.SelectSingleNode("Custom21").InnerText;
+                string Custom22 = expenseNode.SelectSingleNode("Custom22").InnerText;
+                string Custom23 = expenseNode.SelectSingleNode("Custom23").InnerText;
+                string Custom24 = expenseNode.SelectSingleNode("Custom24").InnerText;
+                string Custom25 = expenseNode.SelectSingleNode("Custom25").InnerText;
+                string Custom26 = expenseNode.SelectSingleNode("Custom26").InnerText;
+                string Custom27 = expenseNode.SelectSingleNode("Custom27").InnerText;
+                string Custom28 = expenseNode.SelectSingleNode("Custom28").InnerText;
+                string Custom29 = expenseNode.SelectSingleNode("Custom29").InnerText;
+                string Custom30 = expenseNode.SelectSingleNode("Custom30").InnerText;
+                string Custom31 = expenseNode.SelectSingleNode("Custom31").InnerText;
+                string Custom32 = expenseNode.SelectSingleNode("Custom32").InnerText;
+                string Custom33 = expenseNode.SelectSingleNode("Custom33").InnerText;
+                string Custom34 = expenseNode.SelectSingleNode("Custom34").InnerText;
+                string Custom35 = expenseNode.SelectSingleNode("Custom35").InnerText;
+                string Custom36 = expenseNode.SelectSingleNode("Custom36").InnerText;
+                string Custom37 = expenseNode.SelectSingleNode("Custom37").InnerText;
+                string Custom38 = expenseNode.SelectSingleNode("Custom38").InnerText;
+                string Custom39 = expenseNode.SelectSingleNode("Custom39").InnerText;
+                string Custom40 = expenseNode.SelectSingleNode("Custom40").InnerText;
+
                 // Do something with the extracted data
+                try
+                {
+                    log.Info("In method Insert Expense Reports");
+
+                   
+                        using (var conn = new SqlConnection("Data Source=VASP-LAPTOP13\\SQLEXPRESS01;Database=concur;Integrated Security=true;TrustServerCertificate=true;User Instance=False;"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("INSERT_EXPENSEENTRY", conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+
+                                cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = ID;
+                                cmd.Parameters.Add("@URI", SqlDbType.VarChar).Value = URI;
+                                cmd.Parameters.Add("@ReportID", SqlDbType.VarChar).Value = ReportID;
+                            cmd.Parameters.Add("@ReportOwnerID", SqlDbType.VarChar).Value = ReportOwnerID;
+                            cmd.Parameters.Add("@ExpenseTypeCode", SqlDbType.VarChar).Value = ExpenseTypeCode;
+                            cmd.Parameters.Add("@ExpenseTypeNam", SqlDbType.VarChar).Value = ExpenseTypeName;
+                            cmd.Parameters.Add("@SpendCategoryCode", SqlDbType.VarChar).Value = SpendCategoryCode;
+                            cmd.Parameters.Add("@SpendCategoryName", SqlDbType.VarChar).Value = SpendCategoryName;
+                            cmd.Parameters.Add("@PaymentTypeID", SqlDbType.VarChar).Value = PaymentTypeID;
+                            cmd.Parameters.Add("@PaymentTypeName", SqlDbType.VarChar).Value = PaymentTypeName;
+                            cmd.Parameters.Add("@TransactionDate", SqlDbType.VarChar).Value = TransactionDate;
+                            cmd.Parameters.Add("@TransactionCurrencyCode", SqlDbType.VarChar).Value = TransactionCurrencyCode;
+                            cmd.Parameters.Add("@TransactionAmount", SqlDbType.VarChar).Value = TransactionAmount;
+                            cmd.Parameters.Add("@ExchangeRate", SqlDbType.VarChar).Value = ExchangeRate;
+
+                            cmd.Parameters.Add("@PostedAmount", SqlDbType.VarChar).Value = PostedAmount;
+                            cmd.Parameters.Add("@ApprovedAmount", SqlDbType.VarChar).Value = ApprovedAmount;
+                            cmd.Parameters.Add("@VendorDescription", SqlDbType.VarChar).Value = VendorDescription;
+                            cmd.Parameters.Add("@VendorListItemID", SqlDbType.VarChar).Value = VendorListItemID;
+                            cmd.Parameters.Add("@VendorListItemName", SqlDbType.VarChar).Value = VendorListItemName;
+                            cmd.Parameters.Add("@LocationID", SqlDbType.VarChar).Value = LocationID;
+                            cmd.Parameters.Add("@LocationName", SqlDbType.VarChar).Value = LocationName;
+                            cmd.Parameters.Add("@LocationSubdivision", SqlDbType.VarChar).Value = LocationSubdivision;
+                            cmd.Parameters.Add("@LocationCountry", SqlDbType.VarChar).Value = LocationCountry;
+                            cmd.Parameters.Add("@Description", SqlDbType.VarChar).Value = Description;
+                            cmd.Parameters.Add("@IsPersonal", SqlDbType.VarChar).Value = IsPersonal;
+                            cmd.Parameters.Add("@IsBillable", SqlDbType.VarChar).Value = IsBillable;
+                            cmd.Parameters.Add("@IsPersonalCardCharge", SqlDbType.VarChar).Value = IsPersonalCardCharge;
+                            cmd.Parameters.Add("@HasImage", SqlDbType.VarChar).Value = HasImage;
+                            cmd.Parameters.Add("@IsImageRequired", SqlDbType.VarChar).Value = IsImageRequired;
+                            cmd.Parameters.Add("@ReceiptReceived", SqlDbType.VarChar).Value = ReceiptReceived;
+                            cmd.Parameters.Add("@TaxReceiptType", SqlDbType.VarChar).Value = TaxReceiptType;
+                            cmd.Parameters.Add("@ElectronicReceiptID", SqlDbType.VarChar).Value = ElectronicReceiptID;
+                            cmd.Parameters.Add("@CompanyCardTransactionID", SqlDbType.VarChar).Value = CompanyCardTransactionID;
+                            cmd.Parameters.Add("@TripID", SqlDbType.VarChar).Value = TripID;
+                            cmd.Parameters.Add("@HasItemizations", SqlDbType.VarChar).Value = HasItemizations;
+                            cmd.Parameters.Add("@AllocationType", SqlDbType.VarChar).Value = AllocationType;
+                            cmd.Parameters.Add("@HasAttendees", SqlDbType.VarChar).Value = HasAttendees;
+                            cmd.Parameters.Add("@HasVAT", SqlDbType.VarChar).Value = HasVAT;
+                            cmd.Parameters.Add("@HasAppliedCashAdvance", SqlDbType.VarChar).Value = HasAppliedCashAdvance;
+                            cmd.Parameters.Add("@HasComments", SqlDbType.VarChar).Value = HasComments;
+                            cmd.Parameters.Add("@HasExceptions", SqlDbType.VarChar).Value = HasExceptions;
+                            cmd.Parameters.Add("@IsPaidByExpensePay", SqlDbType.VarChar).Value = IsPaidByExpensePay;
+                            cmd.Parameters.Add("@EmployeeBankAccountID", SqlDbType.VarChar).Value = EmployeeBankAccountID;
+                            cmd.Parameters.Add("@Journey", SqlDbType.VarChar).Value = Journey;
+                            cmd.Parameters.Add("@LastModified", SqlDbType.VarChar).Value = LastModified;
+                            cmd.Parameters.Add("@FormID", SqlDbType.VarChar).Value = FormID;
+                            cmd.Parameters.Add("@OrgUnit1", SqlDbType.VarChar).Value = OrgUnit1;
+                            cmd.Parameters.Add("@OrgUnit2", SqlDbType.VarChar).Value = OrgUnit2;
+                            cmd.Parameters.Add("@OrgUnit3", SqlDbType.VarChar).Value = OrgUnit3;
+                            cmd.Parameters.Add("@OrgUnit4", SqlDbType.VarChar).Value = OrgUnit4;
+                            cmd.Parameters.Add("@OrgUnit5", SqlDbType.VarChar).Value = OrgUnit5;
+                            cmd.Parameters.Add("@OrgUnit6", SqlDbType.VarChar).Value = OrgUnit6;
+                            cmd.Parameters.Add("@Custom1_Type", SqlDbType.VarChar).Value = Custom1_Type;
+                            cmd.Parameters.Add("@Custom1_Value", SqlDbType.VarChar).Value = Custom1_Value;
+                            cmd.Parameters.Add("@Custom1_Code", SqlDbType.VarChar).Value = Custom1_Code;
+                            cmd.Parameters.Add("@Custom1_ListItemID", SqlDbType.VarChar).Value = Custom1_ListItemID;
+
+                            cmd.Parameters.Add("@Custom2", SqlDbType.VarChar).Value = Custom2;
+                
+
+                            cmd.Parameters.Add("@Custom3", SqlDbType.VarChar).Value = Custom3;
+                         
+
+                            cmd.Parameters.Add("@Custom4", SqlDbType.VarChar).Value = Custom4;
+                      
+
+                            cmd.Parameters.Add("@Custom5", SqlDbType.VarChar).Value = Custom5;
+                            
+
+                            cmd.Parameters.Add("@Custom6", SqlDbType.VarChar).Value = Custom6;
+                            
+
+                            cmd.Parameters.Add("@Custom7", SqlDbType.VarChar).Value = Custom7;
+                      
+
+                            cmd.Parameters.Add("@Custom8", SqlDbType.VarChar).Value = Custom8;
+                          
+
+                            cmd.Parameters.Add("@Custom9", SqlDbType.VarChar).Value = Custom9;
+                           
+
+                            cmd.Parameters.Add("@Custom10_Type", SqlDbType.VarChar).Value = Custom10_Type;
+                            cmd.Parameters.Add("@Custom10_Value", SqlDbType.VarChar).Value = Custom10_Value;
+                            cmd.Parameters.Add("@Custom10_Code", SqlDbType.VarChar).Value = Custom10_Code;
+                            cmd.Parameters.Add("@Custom10_ListItemID", SqlDbType.VarChar).Value = Custom10_ListItemID;
+
+                            cmd.Parameters.Add("@Custom11", SqlDbType.VarChar).Value = Custom11;
+                           
+
+                            cmd.Parameters.Add("@Custom12", SqlDbType.VarChar).Value = Custom12;
+                            
+
+                            cmd.Parameters.Add("@Custom13", SqlDbType.VarChar).Value = Custom13;
+                            
+
+                            cmd.Parameters.Add("@Custom14", SqlDbType.VarChar).Value = Custom14;
+                          
+
+                            cmd.Parameters.Add("@Custom15", SqlDbType.VarChar).Value = Custom15;
+                         
+
+                            cmd.Parameters.Add("@Custom16", SqlDbType.VarChar).Value = Custom16;
+                           
+
+                        
+
+                            cmd.Parameters.Add("@Custom17", SqlDbType.VarChar).Value = Custom17;
+                            
+
+                            cmd.Parameters.Add("@Custom18", SqlDbType.VarChar).Value = Custom18;
+                          
+
+                            cmd.Parameters.Add("@Custom19", SqlDbType.VarChar).Value = Custom19;
+                         
+
+                            cmd.Parameters.Add("@Custom20", SqlDbType.VarChar).Value = Custom20;
+                           
+
+                            cmd.Parameters.Add("@Custom21", SqlDbType.VarChar).Value = Custom21;
+                           
+
+                            cmd.Parameters.Add("@Custom22", SqlDbType.VarChar).Value = @Custom22;
+                          
+
+                            cmd.Parameters.Add("@Custom23", SqlDbType.VarChar).Value = Custom23;
+                          
+
+                            cmd.Parameters.Add("@Custom24", SqlDbType.VarChar).Value = Custom24;
+                           
+
+                            cmd.Parameters.Add("@Custom25", SqlDbType.VarChar).Value = Custom25;
+                           
+
+                            cmd.Parameters.Add("@Custom26", SqlDbType.VarChar).Value = Custom26;
+                           
+
+                            cmd.Parameters.Add("@Custom27", SqlDbType.VarChar).Value = Custom27;
+                            
+
+                            cmd.Parameters.Add("@Custom28", SqlDbType.VarChar).Value = Custom28;
+                          
+
+                            cmd.Parameters.Add("@Custom29", SqlDbType.VarChar).Value = Custom29;
+                            
+
+                            cmd.Parameters.Add("@Custom30", SqlDbType.VarChar).Value = Custom30;
+                           
+
+                            cmd.Parameters.Add("@Custom31", SqlDbType.VarChar).Value = Custom31;
+                          
+
+                            cmd.Parameters.Add("@Custom32", SqlDbType.VarChar).Value = Custom32;
+                            
+
+                            cmd.Parameters.Add("@Custom33", SqlDbType.VarChar).Value = Custom33;
+                           
+
+                            cmd.Parameters.Add("@Custom34", SqlDbType.VarChar).Value = Custom34;
+                          
+
+                            cmd.Parameters.Add("@Custom35", SqlDbType.VarChar).Value = Custom35;
+                          
+
+                            cmd.Parameters.Add("@Custom36", SqlDbType.VarChar).Value = Custom36;
+                           
+
+                            cmd.Parameters.Add("@Custom37", SqlDbType.VarChar).Value = Custom37;
+                      
+
+                            cmd.Parameters.Add("@Custom38", SqlDbType.VarChar).Value = Custom38;
+                            
+
+                            cmd.Parameters.Add("@Custom39", SqlDbType.VarChar).Value = Custom39;
+                            
+
+                            cmd.Parameters.Add("@Custom40", SqlDbType.VarChar).Value = Custom40;
+                           
+
+
+
+                            conn.Open();
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                   
+
+
+                }
+                catch (Exception ex)
+                {
+                    log.Error("Error in GetAllUsers:" + ex.Message);
+                    return string.Empty;
+                }
 
                 Console.WriteLine($"ID: {ID}, ReportID: {ReportID}");
             }
