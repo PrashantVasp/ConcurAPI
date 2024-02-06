@@ -36,10 +36,10 @@ string companyId = ConfigurationManager.AppSettings["companyId"];
 string AccessToken = await GetAndInsertAccessTokenAsync(refresh_token, username, password, clientId, clientSecret, baseURL,connectionstring);
 
 //Get Users data using authorization token
-//string status = await GetandInsertAllUsers(AccessToken, refresh_token, username, password, clientId, clientSecret, baseURL,connectionstring);
+string status = await GetandInsertAllUsers(AccessToken, refresh_token, username, password, clientId, clientSecret, baseURL,connectionstring);
 
 //Get Expense Reports
-//string statusReport = await GetAndInsertReports(AccessToken, refresh_token, username, password, clientId, clientSecret, baseURL,connectionstring);
+string statusReport = await GetAndInsertReports(AccessToken, refresh_token, username, password, clientId, clientSecret, baseURL,connectionstring);
 
 //Get Expense Reports Entries
 string statusReportEntry = await GetandInsertReportEntries(AccessToken, refresh_token, username, password, clientId, clientSecret, baseURL, connectionstring);

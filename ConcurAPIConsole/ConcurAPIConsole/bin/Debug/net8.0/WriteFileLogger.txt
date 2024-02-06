@@ -1,0 +1,284 @@
+2024-02-06 20:38:32,375 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,436 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,438 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,440 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,442 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,444 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,446 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,447 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,448 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,449 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,450 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,451 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,452 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,453 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,455 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,456 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,457 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,457 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,458 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,459 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,460 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,461 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,461 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,462 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,463 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,464 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,464 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:32,465 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:32,465 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWilyhLMBL$s66OoY0LhSQROThHyxBw$p0
+2024-02-06 20:38:35,523 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,525 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,526 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,527 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,528 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,529 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,530 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,531 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,532 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,533 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,534 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,535 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,536 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,537 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,538 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,539 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,540 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,541 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,542 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,543 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,544 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,545 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,546 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,547 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,547 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,548 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,549 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,550 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,551 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,552 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,552 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,553 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,554 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,555 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,555 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,556 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,558 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,559 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,559 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,560 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,560 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,561 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,562 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,562 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,563 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,563 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,564 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,565 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,565 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:35,566 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:35,566 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWip$si78ALXmLvjKdMAWgSalIUo$s2zIQ
+2024-02-06 20:38:37,337 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,363 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,364 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,365 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,365 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,366 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,367 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,367 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,368 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,369 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,369 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,370 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,371 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,371 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,372 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,373 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,373 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,376 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,376 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,377 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,378 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,378 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,379 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,380 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,381 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,381 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,382 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,383 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,383 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,384 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,385 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,385 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,386 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,387 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,387 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,388 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,389 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,389 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,390 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,391 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,392 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,392 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,393 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,394 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,394 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,395 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,396 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,396 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,397 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:37,398 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:37,398 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWit$pirsGK$pFvBw7DTU$sq4T5dLa6zeD4
+2024-02-06 20:38:39,198 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,199 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,200 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,200 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,201 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,202 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,202 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,203 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,204 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,204 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,205 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,206 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,206 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,207 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,208 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,208 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,209 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,210 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,210 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,211 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,212 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,212 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,213 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,214 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,214 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,215 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,216 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,217 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,217 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,218 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,219 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,219 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,220 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,220 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,221 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,222 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,222 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,223 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,223 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,224 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,224 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,225 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,226 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,226 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,227 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,227 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,228 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,230 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,230 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:39,231 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:39,231 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWit8iLgELE6c4uzR$sKY9bgBqF370MH0
+2024-02-06 20:38:41,545 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,571 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,571 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,573 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,573 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,574 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,575 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,575 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,576 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,577 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,577 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,578 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,578 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,579 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,580 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,580 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,581 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,582 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,582 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,583 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,584 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,584 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,585 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,586 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,586 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,587 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,588 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,589 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,592 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,592 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,593 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,594 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,594 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,595 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,596 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,596 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,597 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,598 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,598 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,599 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,599 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,600 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,600 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,601 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,602 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,603 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,603 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,604 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,604 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:41,605 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:41,605 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWiR9iL4HJ$swIqNX2V563eZNtgb$pJf$pk
+2024-02-06 20:38:43,910 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,912 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,912 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,913 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,914 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,915 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,916 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,917 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,918 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,919 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,920 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,921 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,922 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,923 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,923 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,924 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,925 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,926 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,927 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,928 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,929 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,930 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,931 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,932 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,933 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,934 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,935 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,936 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,937 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,938 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,938 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,939 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,940 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,940 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,941 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,942 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,943 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,943 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,944 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,945 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,947 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,948 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,949 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,950 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,951 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,952 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,953 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,954 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,955 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - In method Insert Expense Reports
+2024-02-06 20:38:43,956 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - First set of 25 rows inserted in database
+2024-02-06 20:38:43,956 [.NET TP Worker] INFO  Program+<<<Main>$>g__GetandInsertReportEntries|0_3>d [(null)] - Fetch next page's reports from the concur API offset:=gWiV9jLsCKhBSbnXBIuWyoa0uoSkaNxE
