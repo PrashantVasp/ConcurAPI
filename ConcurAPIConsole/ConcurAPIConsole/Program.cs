@@ -109,20 +109,26 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
     try
     {
         log.Info("In method GetandInsertAllUsers");
-
+        int startIndex = 1;
+        int totalResults = 0;
+        
         using (var client = new HttpClient())
         {
             client.DefaultRequestHeaders.Authorization =
         new AuthenticationHeaderValue("Bearer", AccessToken);
-            //var tokenResponse = await client.PostAsync(tokenEndpoint, tokenRequest);
-            //tokenResponse.EnsureSuccessStatusCode();
-
-            var response = await client.GetAsync(baseURL + "profile/identity/v4/Users/");
+        //var tokenResponse = await client.PostAsync(tokenEndpoint, tokenRequest);
+        //tokenResponse.EnsureSuccessStatusCode();
+        INSERTUSERS:
+            if (startIndex > 1)
+            {
+                startIndex = startIndex - 1;
+            }
+            var response = await client.GetAsync(baseURL + "profile/identity/v4/Users?count=50&startIndex=" + startIndex);
             response.EnsureSuccessStatusCode();
             string responseBody = await response.Content.ReadAsStringAsync();
             var jsonString = await response.Content.ReadAsStringAsync();
             var usersResult = JsonConvert.DeserializeObject<object>(jsonString);
-        
+            
             log.Info("Successfully fetched all the users");
             var userDataList = new Root();
 
@@ -138,25 +144,110 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
             // return insertStatus;
             using (var conn = new SqlConnection(connectionstring))
             {
+                int insertedRows = 0;
+                totalResults = userDataList.totalResults;
                 conn.Open();
 
                 foreach (var userData in userDataList.Resources)
                 {
                     var cmd = new SqlCommand("INSERT_USERS", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceEndDayViewHour", userData.localeOverrides.preferenceEndDayViewHour);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceFirstDayOfWeek", userData.localeOverrides.preferenceFirstDayOfWeek);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDateFormat", userData.localeOverrides.preferenceDateFormat);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceCurrencySymbolLocation", userData.localeOverrides.preferenceCurrencySymbolLocation);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceHourMinuteSeparator", userData.localeOverrides.preferenceHourMinuteSeparator);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDistance", userData.localeOverrides.preferenceDistance);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceDefaultCalView", userData.localeOverrides.preferenceDefaultCalView);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preference24Hour", userData.localeOverrides.preference24Hour);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNumberFormat", userData.localeOverrides.preferenceNumberFormat);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceStartDayViewHour", userData.localeOverrides.preferenceStartDayViewHour);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeCurrencyFormat", userData.localeOverrides.preferenceNegativeCurrencyFormat);
-                    cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeNumberFormat", userData.localeOverrides.preferenceNegativeNumberFormat);
+                    if (userData.localeOverrides.preferenceEndDayViewHour == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceEndDayViewHour", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceEndDayViewHour", userData.localeOverrides.preferenceEndDayViewHour);
+                    }
+                    if (userData.localeOverrides.preferenceFirstDayOfWeek == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceFirstDayOfWeek", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceFirstDayOfWeek", userData.localeOverrides.preferenceFirstDayOfWeek);
+                    }
+                    if (userData.localeOverrides.preferenceDateFormat == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDateFormat","");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDateFormat", userData.localeOverrides.preferenceDateFormat);
+                    }
+                    if (userData.localeOverrides.preferenceCurrencySymbolLocation == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceCurrencySymbolLocation", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceCurrencySymbolLocation", userData.localeOverrides.preferenceCurrencySymbolLocation);
+                    }
+                    if (userData.localeOverrides.preferenceHourMinuteSeparator== null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceHourMinuteSeparator", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceHourMinuteSeparator", userData.localeOverrides.preferenceHourMinuteSeparator);
+                       
+                    }
+                    if(userData.localeOverrides.preferenceDistance == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDistance", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDistance", userData.localeOverrides.preferenceDistance);
+                    }
+                    if (userData.localeOverrides.preferenceDefaultCalView == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDefaultCalView", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceDefaultCalView", userData.localeOverrides.preferenceDefaultCalView);
+                    }
+                    if (userData.localeOverrides.preference24Hour == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preference24Hour","_");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preference24Hour", userData.localeOverrides.preference24Hour);
+                    }
+                    if (userData.localeOverrides.preferenceNumberFormat == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNumberFormat", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNumberFormat", userData.localeOverrides.preferenceNumberFormat);
+                    }
+                    if (userData.localeOverrides.preferenceStartDayViewHour == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceStartDayViewHour","" );
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceStartDayViewHour", userData.localeOverrides.preferenceStartDayViewHour);
+                    }
+                    if (userData.localeOverrides.preferenceNegativeCurrencyFormat == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeCurrencyFormat", "");
+                    }
+                    else {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeCurrencyFormat", userData.localeOverrides.preferenceNegativeCurrencyFormat);
+                    }
+                    if (userData.localeOverrides.preferenceNegativeNumberFormat == null)
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeNumberFormat", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@localeOverrides_preferenceNegativeNumberFormat", userData.localeOverrides.preferenceNegativeNumberFormat);
+                    }
                     if (userData.addresses != null && userData.addresses.Count > 0)
                     {
                         if (userData.addresses[0].country == null)
@@ -295,7 +386,7 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
                         }
                         if (userData.phoneNumbers[0].notifications == null)
                         {
-                            cmd.Parameters.AddWithValue("@phoneNumbers_notifications", "");
+                            cmd.Parameters.AddWithValue("@phoneNumbers_notifications", false);
                         }
                         else
                         {
@@ -303,7 +394,7 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
                         }
                         if(userData.phoneNumbers[0].primary == null)
                         {
-                            cmd.Parameters.AddWithValue("@phoneNumbers_primary", "");
+                            cmd.Parameters.AddWithValue("@phoneNumbers_primary", false);
                         }
                         else
                         {
@@ -322,13 +413,56 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
                     }
                     if (userData.emergencyContacts != null && userData.emergencyContacts.Count > 0)
                     {
-                        cmd.Parameters.AddWithValue("@emergencyContacts_country", userData.emergencyContacts[0].country);
-                        cmd.Parameters.AddWithValue("@emergencyContacts_streetAddress", userData.emergencyContacts[0].streetAddress);
-                        cmd.Parameters.AddWithValue("@emergencyContacts_postalCode", userData.emergencyContacts[0].postalCode);
-                        cmd.Parameters.AddWithValue("@emergencyContacts_name", userData.emergencyContacts[0].name);
-                        cmd.Parameters.AddWithValue("@emergencyContacts_locality", userData.emergencyContacts[0].locality);
-                        cmd.Parameters.AddWithValue("@emergencyContacts_phone", userData.emergencyContacts[0].phones[0]);
-                        if(userData.emergencyContacts[0].region == null)
+                        
+                        if (userData.emergencyContacts[0].country == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_country", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_country", userData.emergencyContacts[0].country);
+                        }
+                        if (userData.emergencyContacts[0].streetAddress == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_streetAddress", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_streetAddress", userData.emergencyContacts[0].streetAddress);
+                        }
+                        if (userData.emergencyContacts[0].postalCode == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_postalCode", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_postalCode", userData.emergencyContacts[0].postalCode);
+                        }
+                        if (userData.emergencyContacts[0].name == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_name", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_name", userData.emergencyContacts[0].name);
+                        }
+                        if (userData.emergencyContacts[0].locality == null)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_locality", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_locality", userData.emergencyContacts[0].locality);
+                        }
+                        if (userData.emergencyContacts[0].phones == null || userData.emergencyContacts[0].phones.Count==0)
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_phone", "");
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@emergencyContacts_phone", userData.emergencyContacts[0].phones[0]);
+                        }
+                        if (userData.emergencyContacts[0].region == null)
                         {
                             cmd.Parameters.AddWithValue("@emergencyContacts_region", "");
                         }
@@ -376,7 +510,14 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
                     {
                         cmd.Parameters.AddWithValue("@nickName", userData.nickName);
                     }
-                    cmd.Parameters.AddWithValue("@schemas", userData.schemas[0]);
+                    if (userData.schemas != null && userData.schemas.Count > 0)
+                    {
+                        cmd.Parameters.AddWithValue("@schemas", userData.schemas[0]);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@schemas", "");
+                    }
                     cmd.Parameters.AddWithValue("@active", userData.active);
                     cmd.Parameters.AddWithValue("@id", userData.id);
                     if (userData.emails != null && userData.emails.Count > 0)
@@ -446,11 +587,37 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
                         cmd.Parameters.AddWithValue("@urn_costCenter", userData.urn.costCenter);
 
                     }
-                    cmd.Parameters.AddWithValue("@urn_startDate", userData.urn.startDate);
-                    cmd.Parameters.AddWithValue("@urn_employeeNumber", userData.urn.employeeNumber);
+                    if(userData.urn.startDate== null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_startDate", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@urn_startDate", userData.urn.startDate);
+                    }
+               
+                    if (userData.urn.employeeNumber == null)
+                    {
+                        cmd.Parameters.AddWithValue("@urn_employeeNumber", "");
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@urn_employeeNumber", userData.urn.employeeNumber);
+                    }
                     try
                     {
+                      
                         cmd.ExecuteNonQuery();
+                        startIndex++;
+                        insertedRows++;
+                        if (insertedRows == userDataList.Resources.Count)
+                        {
+                            goto INSERTUSERS;
+                        }
+                        if(startIndex == totalResults)
+                        {
+                            break;
+                        }
                         log.Info("Successfully inserted User named: " + userData.userName);
                     }
                     catch(SqlException ex)
@@ -465,7 +632,7 @@ static async Task<string> GetAndInsertAccessTokenAsync(string refresh_token, str
     }
     catch (Exception ex)
     {
-        log.Error("Error in GetAllUsers:" + ex.Message);
+        log.Error("Error in GetAllUsers:" + ex.Message );
         return string.Empty;
     }
 }
@@ -496,32 +663,32 @@ static async Task<string> GetAndInsertReports(string AccessToken, string refresh
             // Now you can navigate through the XML structure
             // For example, if there is an 'expenses' element, you can iterate through its children
             XmlNodeList expenseNodes = xmlDoc.SelectNodes("//Items/Report");
-           
-            log.Info("Fetch last inserted date from the Expenses table");
-            string modifiedDateAfter = "";
-            log.Info("Fetch last inserted date from the Expenses table");
-            using (var conn = new SqlConnection(connectionstring))
-            {
-                using (SqlCommand cmd = new SqlCommand("SELECT_EXPENSES_LASTINSERTEDDATE", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    conn.Open();
-                    modifiedDateAfter = cmd.ExecuteScalar().ToString();
-                }
-            }
-            bool goAheadForInsertion = false;
-            if (modifiedDateAfter == "" || modifiedDateAfter == null)
-            {
-                goAheadForInsertion = true;
-            }
-            else if (System.DateTime.Now.Date > System.DateTime.Parse(modifiedDateAfter))
-            {
-                goAheadForInsertion = true;
-            }
+
+            //log.Info("Fetch last inserted date from the Expenses table");
+            //string modifiedDateAfter = "";
+            
+            //using (var conn = new SqlConnection(connectionstring))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand("SELECT_EXPENSES_LASTINSERTEDDATE", conn))
+            //    {
+            //        cmd.CommandType = CommandType.StoredProcedure;
+            //        conn.Open();
+            //        modifiedDateAfter = cmd.ExecuteScalar().ToString();
+            //    }
+            //}
+            //bool goAheadForInsertion = false;
+            //if (modifiedDateAfter == "" || modifiedDateAfter == null)
+            //{
+            //    goAheadForInsertion = true;
+            //}
+            //else if (System.DateTime.Now.Date > System.DateTime.Parse(modifiedDateAfter))
+            //{
+            //    goAheadForInsertion = true;
+            //}
             int insertedRows = 0;
             string offset = "";
         INSETNEXTPAGEROWS:
-           
+
             if (offset != "")
             {
                 log.Info("Fetch next page's reports from the concur API offset:" + offset);
@@ -538,8 +705,9 @@ static async Task<string> GetAndInsertReports(string AccessToken, string refresh
                 // For example, if there is an 'expenses' element, you can iterate through its children
                 expenseNodes = xmlDoc.SelectNodes("//Items/Report");
             }
-           
-            if(goAheadForInsertion == true) { 
+
+            //if (goAheadForInsertion == true)
+            //{
                 foreach (XmlNode expenseNode in expenseNodes)
                 {
                     // Access specific elements within each expense
@@ -602,14 +770,14 @@ static async Task<string> GetAndInsertReports(string AccessToken, string refresh
                     string Custom18 = expenseNode.SelectSingleNode("Custom18").InnerText;
                     string Custom19 = expenseNode.SelectSingleNode("Custom19").InnerText;
                     string Custom20 = expenseNode.SelectSingleNode("Custom20").InnerText;
-                   
-                        // Do something with the extracted data
 
-                        try
+                    // Do something with the extracted data
+
+                    try
                     {
                         log.Info("In method Insert Expense Reports");
 
-                        if (ApprovalStatusCode == "A_APPR" )
+                        if (ApprovalStatusCode == "A_APPR")
                         {
                             using (var conn = new SqlConnection(connectionstring))
                             {
@@ -676,15 +844,16 @@ static async Task<string> GetAndInsertReports(string AccessToken, string refresh
                                     cmd.Parameters.Add("@Custom18", SqlDbType.VarChar).Value = Custom18;
                                     cmd.Parameters.Add("@Custom19", SqlDbType.VarChar).Value = Custom19;
                                     cmd.Parameters.Add("@Custom20", SqlDbType.VarChar).Value = Custom20;
-                                  
+                                    cmd.Parameters.Add("@OwnerLoginID_ReportID", SqlDbType.VarChar).Value = OwnerLoginID+"_"+ ID;
+
 
                                     conn.Open();
                                     cmd.ExecuteNonQuery();
                                     log.Info("First set of 25 rows inserted in database");
                                     insertedRows++;
-                                  if(insertedRows== expenseNodes.Count)
+                                    if (insertedRows == expenseNodes.Count)
                                     {
-                                        
+
                                         XmlNodeList NextPageNode = xmlDoc.SelectNodes("//Reports/NextPage");
                                         foreach (XmlNode NextPage in NextPageNode)
                                         {
@@ -709,7 +878,7 @@ static async Task<string> GetAndInsertReports(string AccessToken, string refresh
                     }
 
                 }
-            }
+            //}
             return "Successfully fetched all the reports";
         }
     }
@@ -725,13 +894,13 @@ static async Task<string> GetandInsertReportEntries(string AccessToken, string r
     log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     try
     {
-        List<string> usersList = new List<string>();
+        List<string> Owner_ReportIdList = new List<string>();
         log.Info("In method GetandInsertReportEntries");
         // Make a request to the Concur API and get the XML response
         log.Info("Get all the users from Users table in database");
         using (var conn = new SqlConnection(connectionstring))
         {
-            using (SqlCommand cmd = new SqlCommand("SELECT_ALL_USERS", conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT_OWNERID_REPORTID", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 conn.Open();
@@ -741,14 +910,17 @@ static async Task<string> GetandInsertReportEntries(string AccessToken, string r
                 da.Fill(dt);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    usersList.Add(dt.Rows[i].ItemArray[0].ToString());
+                    Owner_ReportIdList.Add(dt.Rows[i].ItemArray[0].ToString());
                 }
             }
         }
         log.Info("Loop through all the users and match the user name with report entry");
-        foreach (string userName in usersList)
+        foreach (string item in Owner_ReportIdList)
         {
-        
+            string[] owner_ReportId = item.Split('_');
+            string ownerId = owner_ReportId[0];
+            string reportId = owner_ReportId[1];
+
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Authorization =
@@ -756,7 +928,7 @@ static async Task<string> GetandInsertReportEntries(string AccessToken, string r
                 //var tokenResponse = await client.PostAsync(tokenEndpoint, tokenRequest);
                 //tokenResponse.EnsureSuccessStatusCode();
 
-                var response = await client.GetAsync(baseURL + "api/v3.0/expense/entries?user=" + userName);
+                var response = await client.GetAsync(baseURL + "api/v3.0/expense/entries?user=" + ownerId +"&reportid="+reportId);
                 response.EnsureSuccessStatusCode();
                 string xmlData = await response.Content.ReadAsStringAsync();
 
@@ -774,7 +946,7 @@ static async Task<string> GetandInsertReportEntries(string AccessToken, string r
                 {
                     log.Info("Fetch next page's reports from the concur API offset:" + offset);
                     insertedRows = 0;
-                    var responseNextPage = await client.GetAsync(baseURL + "api/v3.0/expense/entries?user=" + userName + "&offset" + offset);
+                    var responseNextPage = await client.GetAsync(baseURL + "api/v3.0/expense/entries?user=" + ownerId + "&reportid=" + reportId + "&offset" + offset);
                     responseNextPage.EnsureSuccessStatusCode();
                     string xmlDataNextPage = await responseNextPage.Content.ReadAsStringAsync();
 

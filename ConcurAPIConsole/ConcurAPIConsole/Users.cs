@@ -172,6 +172,10 @@ namespace ConcurAPIConsole
 
     public class Root
     {
+        public List<string> schemas { get; set; }
+        public int totalResults { get; set; }
+        public int startIndex { get; set; }
+        public int itemsPerPage { get; set; }
         public List<Resource> Resources { get; set; }
     }
 
